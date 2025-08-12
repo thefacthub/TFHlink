@@ -5,6 +5,19 @@
     <meta charset="UTF-8">
     <title>The Fact Hub</title>
     <link rel="stylesheet" href="style.css">
+
+     <script>
+    // Anti-cache for CSS and JS files
+    document.addEventListener("DOMContentLoaded", function() {
+      const links = document.querySelectorAll('link[rel="stylesheet"], script[src]');
+      const version = Date.now();
+
+      links.forEach(el => {
+        if (el.href) el.href = el.href.split('?')[0] + '?v=' + version;
+        if (el.src) el.src = el.src.split('?')[0] + '?v=' + version;
+      });
+    });
+  </script>
 </head>
 <body>
 <div class="container">
